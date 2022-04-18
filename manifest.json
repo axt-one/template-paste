@@ -1,0 +1,31 @@
+{
+    "name": "Template Paste",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "description": "Pasting a template anyware with 2-clicks.",
+    "permissions": [
+        "storage",
+        "background",
+        "activeTab",
+        "tabs",
+        "contextMenus"
+    ],
+    "icons": {
+    },
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": [
+            "content.js"
+        ],
+        "all_frames": true
+    }],
+    "background": {
+        "matches": [
+        ],
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_title": "Template Paste Setting",
+        "default_popup": "popup/popup.html"
+    }
+}
