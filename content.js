@@ -1,6 +1,6 @@
 function insertTemplate() {
     chrome.storage.sync.get(null, items => {
-        var selectedArea = document.activeElement;
+        const selectedArea = document.activeElement;
         console.log(selectedArea)
         if (typeof selectedArea.value !== "undefined") {
             selectedArea.value = selectedArea.value.substr(0, selectedArea.selectionStart)
@@ -11,7 +11,7 @@ function insertTemplate() {
 }
 
 chrome.runtime.onMessage.addListener(
-    function(id, msg, f) {
+    function (request, sender, f) {
         console.log('received');
         insertTemplate();
         f();

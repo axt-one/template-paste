@@ -5,23 +5,22 @@
     "description": "Pasting a template anyware with 2-clicks.",
     "permissions": [
         "storage",
-        "background",
-        "activeTab",
-        "tabs",
         "contextMenus"
     ],
-    "icons": {
-    },
-    "content_scripts": [{
-        "matches": ["<all_urls>"],
-        "js": [
-            "content.js"
-        ],
-        "all_frames": true
-    }],
+    "icons": {},
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "all_frames": true
+        }
+    ],
     "background": {
-        "matches": [
-        ],
+        "matches": [],
         "service_worker": "background.js"
     },
     "commands": {
