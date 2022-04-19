@@ -24,6 +24,14 @@
         ],
         "service_worker": "background.js"
     },
+    "commands": {
+        "cmd": {
+            "description": "paste",
+            "suggested_key": {
+                "default": "Ctrl+J"
+            }
+        }
+    },
     "action": {
         "default_title": "Template Paste Setting",
         "default_popup": "popup/popup.html"
