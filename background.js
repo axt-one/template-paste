@@ -20,7 +20,6 @@ function sendMessage(id, message) {
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
     console.log('clicked');
-    chrome.tabs.sendMessage(tab.id, {hello: 'hello'}, () => {});
     sendMessage(tab.id, {hello: 'hello'})
 })
 
