@@ -1,6 +1,6 @@
 chrome.runtime.onInstalled.addListener(function (details) {
     var settings = {
-        "template": "1. 修了時の目標\n    - \n2. 月単位程度の計画\n    - \n3. 今週やったこと\n    - \n4. 来週やること\n    - "
+        "template": "your template\nPrease edit this."
     };
     chrome.storage.sync.set(settings, () => {
     });
@@ -16,3 +16,10 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     console.log('clicked');
     chrome.tabs.sendMessage(tab.id, {hello: 'hello'}, () => {});
 })
+
+chrome.commands.onCommand.addListener((command, tab) => {
+    console.log(command)
+    if (command === "cmd") {
+        chrome.tabs.sendMessage(tab.id, {hello: 'hello'}, () => {});
+    }
+});
