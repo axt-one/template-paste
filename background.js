@@ -12,14 +12,22 @@ chrome.runtime.onInstalled.addListener(function (details) {
     });
 });
 
+function sendMessage(id, message) {
+    if (id >= 0) {
+        chrome.tabs.sendMessage(id, message, () => {});
+    }
+}
+
 chrome.contextMenus.onClicked.addListener((info, tab) => {
     console.log('clicked');
     chrome.tabs.sendMessage(tab.id, {hello: 'hello'}, () => {});
+    sendMessage(tab.id, {hello: 'hello'})
 })
 
 chrome.commands.onCommand.addListener((command, tab) => {
     console.log(command)
+    console.log(tab.id)
     if (command === "cmd") {
-        chrome.tabs.sendMessage(tab.id, {hello: 'hello'}, () => {});
+        sendMessage(tab.id, {hello: 'hello'})
     }
 });
